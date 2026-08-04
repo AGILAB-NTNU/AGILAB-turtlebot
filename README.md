@@ -17,16 +17,20 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone https://github.com/AGILAB-NTNU/AGILAB-turtlebot.git
+   cd AGILAB-turtlebot
    ```
 
+   The `docs/` folder contains the full TurtleBot 4 environment setup guide, including Ubuntu 22.04, ROS 2 Humble, and TurtleBot desktop package instructions.
+
 2. **Create and activate the environment:**
-   This will install all system-level dependencies (like CUDA) and the local Python package in editable mode.
+   This will install the Python package and dependencies for the project.
    ```bash
    conda env create -f environment.yml
    conda activate agilab_env
    ```
+
+   > Note: This project expects an Ubuntu 22.04 host with Python 3 for ROS 2 Humble. Use `scripts/turtlebot_env.sh` to bootstrap the OS-level TurtleBot environment.
 
 3. **Install pre-commit hooks (Optional but recommended):**
    ```bash
