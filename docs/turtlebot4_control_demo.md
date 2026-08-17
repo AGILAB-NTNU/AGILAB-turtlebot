@@ -1,3 +1,7 @@
+## 環境安裝
+
+[環境安裝 markdown file](turtlebot4_env_install.md)
+
 ## 建置 ROS 2 Workspace
 
 進入 TurtleBot 4 控制專案的 ROS 2 Workspace：
@@ -46,6 +50,10 @@ ros2 run ros2_comm_demo topic_publisher
 
 Publisher 啟動後，應持續發布訊息。Terminal 1 的 Subscriber 應能顯示接收到的資料。
 
+<p align="center">
+<img src="assets/images/turtlebot4/topic_node.png" width="65%">
+</p>
+
 ---
 
 ### Service 通訊測試
@@ -69,6 +77,10 @@ ros2 run ros2_comm_demo service_client
 ```
 
 Client 會向 Server 發送請求，並顯示 Server 回傳的結果。
+
+<p align="center">
+<img src="assets/images/turtlebot4/service_node.png" width="65%">
+</p>
 
 ---
 
@@ -100,6 +112,10 @@ Action Client 會向 Server 傳送 Goal，並顯示：
 - 執行中的 Feedback。
 - 任務完成後的 Result。
 
+<p align="center">
+<img src="assets/images/turtlebot4/action_node.png" width="65%">
+</p>
+
 ---
 
 ## TurtleBot 4 LiDAR 控制範例
@@ -120,6 +136,10 @@ ros2 run tb4_lidar_control forward_stop_beep_node
 4. 當障礙物距離低於設定的安全距離時停止移動。
 5. 觸發 TurtleBot 4 蜂鳴器
 
+<p align="center">
+<img src="assets/images/turtlebot4/lidar_control_node.png" width="65%">
+</p>
+
 ---
 
 ## TurtleBot 4 SLAM、導航與自主探索
@@ -131,6 +151,10 @@ ros2 run tb4_lidar_control forward_stop_beep_node
 - Navigation2
 - RViz 2
 - Autonomous Frontier Exploration
+
+<p align="center">
+<img src="assets/images/turtlebot4/slam_nav_architecture.png" width="100%">
+</p>
 
 執行自主探索時，開啟四個終端機，並依照以下順序啟動。
 
@@ -206,3 +230,10 @@ TurtleBot 4 前往目標位置
     ↓
 更新地圖並重複搜尋
 ```
+<p align="center">
+<img src="assets/images/turtlebot4/slam_mapping.png" width="100%">
+</p>
+
+<p align="center">
+Slam+Rviz2 最終建圖範例
+</p>

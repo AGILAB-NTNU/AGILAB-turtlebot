@@ -26,6 +26,14 @@
 - Create 3 republisher
 - RPLIDAR, odometry, IMU, battery, docking, wheel, camera, TF, and velocity topics
 
+<p align="center">
+<img src="assets/images/turtlebot4/turtlebot_architecture.png" width="70%">
+</p>
+
+<p align="center">
+turtlebot4架構圖
+</p>
+
 ## Install
 
 ```bash
@@ -37,7 +45,11 @@ chmod +x turtlebot_env.sh
 
 ## 透過 SSH 登入 TurtleBot 4 並修復 Create 3 連線
 
-當 TurtleBot 4 無法接收 Create 3 的資料，或電腦端無法找到 `/odom`、`/imu`、`/battery_state` 等 ROS 2 Topics 時，可以透過 SSH 登入 Raspberry Pi，重新啟動 Create 3 與 TurtleBot 4 的相關服務。
+<p align="center">
+<img src="assets/images/turtlebot4/turtlebot_ui.png" width="50%">
+</p>
+
+當 TurtleBot 4 robot 界面的五燈未全部亮起，且無法接收 Create 3 的資料，或電腦端無法找到 `/odom`、`/imu`、`/battery_state` 等 ROS 2 Topics 時，可以透過 SSH 登入 Raspberry Pi，重新啟動 Create 3 與 TurtleBot 4 的相關服務。
 
 ### 1. SSH 登入 TurtleBot 4 的 Raspberry Pi
 
