@@ -1,4 +1,10 @@
-name: agilab_env
+# This Conda environment is intended for an Ubuntu 22.04 development machine
+# using Ubuntu's Python 3 environment for ROS 2 Humble and TurtleBot 4.
+#
+# System-level ROS/TurtleBot dependencies should be installed with
+# scripts/turtlebot_env.sh on Ubuntu before using this Conda environment.
+
+name: agilab_helson_tb4__env
 channels:
   - pytorch
   - nvidia
@@ -15,7 +21,7 @@ dependencies:
   - scipy~=1.11
   - pandas~=2.1
   - matplotlib~=3.8
-  
+
   # PyTorch & CUDA (Adjust versions based on your local GPU drivers)
   - pytorch=2.3.1
   - torchvision=0.18.1
@@ -29,11 +35,10 @@ dependencies:
   - ruff=0.4.10
   - pytest=8.2.2
   - pytest-cov=5.0.0
-  
+
   # Pip packages — add project-specific dependencies below
   - pip:
     # Installs the local package in editable mode (required)
     - -e .[dev]
     # Examples of common AI/research packages:
     # - transformers
-

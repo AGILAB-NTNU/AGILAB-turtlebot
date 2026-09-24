@@ -6,29 +6,37 @@
 
 ## Overview
 
-*(Provide a brief overview of the research project, the core problem it solves, and the main contribution.)*
+This project provides the ROS 2 environment, communication demos, LiDAR control, SLAM, navigation, and autonomous exploration for TurtleBot 4.
 
 ## Installation
 
 ### Prerequisites
-- [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+- Ubuntu 22.04
+- ROS 2 Humble
+- TurtleBot 4
 
 ### Setup Instructions
 
 1. **Clone the repository:**
+
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone https://github.com/AGILAB-NTNU/AGILAB-turtlebot.git
+   cd AGILAB-turtlebot
    ```
 
-2. **Create and activate the environment:**
-   This will install all system-level dependencies (like CUDA) and the local Python package in editable mode.
+2. **Set up the TurtleBot 4 environment:**
+
    ```bash
-   conda env create -f environment.yml
-   conda activate agilab_env
+   cd scripts
+   chmod +x turtlebot_env.sh
+   ./turtlebot_env.sh
    ```
 
-3. **Install pre-commit hooks (Optional but recommended):**
+   The `docs/` folder contains the detailed TurtleBot 4 environment setup guide.
+
+3. **Install pre-commit hooks (Optional):**
+
    ```bash
    pre-commit install
    ```
@@ -37,25 +45,79 @@
 
 ```text
 .
-├── configs/            # YAML configuration files (Hydra/OmegaConf)
-├── data/               # Datasets, weights, and logs (Ignored by Git)
-├── docker/             # Docker configurations for reproducible deployments
-├── docs/               # Project documentation (Sphinx/MkDocs)
-├── notebooks/          # Jupyter Notebooks for EDA and statistical analysis
-├── scripts/            # Bash scripts and SLURM job submissions
-├── src/project_name/   # Core Python package
-└── tests/              # Automated tests (PyTest)
+├── configs/                    # Configuration files
+├── data/                       # Datasets and logs
+├── docker/                     # Docker configurations
+├── docs/                       # Documentation
+├── notebooks/                  # Jupyter Notebooks
+├── ros2_ws/
+│   └── turtlebot4_control/     # TurtleBot 4 ROS 2 workspace
+├── scripts/                    # Environment setup scripts
+├── src/                        # Core Python package
+└── tests/                      # Automated tests
 ```
 
 ## Usage
 
-*(Provide a few examples of how to run the main experiments or pipelines in your project.)*
-
-### Example: Running a Training Script
+### Build Control Workspace
 
 ```bash
-# Example command using python
-python scripts/train.py --config configs/train.yaml
+cd ros2_ws/turtlebot4_control
+colcon build
+source install/setup.bash
+```
+
+### Topic Demo
+
+Run in two terminals:
+
+```bash
+ros2 run ros2_comm_demo topic_subscriber
+ros2 run ros2_comm_demo topic_publisher
+```
+
+### Service Demo
+
+Run in two terminals:
+
+```bash
+ros2 run ros2_comm_demo service_server
+ros2 run ros2_comm_demo service_client
+```
+
+### Action Demo
+
+Run in two terminals:
+
+```bash
+ros2 run ros2_comm_demo action_server
+ros2 run ros2_comm_demo action_client
+```
+
+### LiDAR Control Demo
+
+```bash
+ros2 run tb4_lidar_control forward_stop_beep_node
+```
+
+### SLAM, Navigation and AFE Demo
+
+Run in four terminals:
+
+```bash
+ros2 launch turtlebot4_navigation slam.launch.py
+```
+
+```bash
+ros2 launch turtlebot4_navigation nav2.launch.py
+```
+
+```bash
+ros2 launch turtlebot4_viz view_robot.launch.py
+```
+
+```bash
+ros2 run autonomous_exploration control_tb4
 ```
 
 ## Contributing
@@ -72,7 +134,7 @@ If you use this work in your research, please cite it as follows:
   title = {Project Title},
   journal = {Journal or Conference Name},
   year = {2026},
-  url = {https://github.com/AGILAB-NTNU/SoftwareTemplate}
+  url = {https://github.com/AGILAB-NTNU/AGILAB-turtlebot}
 }
 ```
 
